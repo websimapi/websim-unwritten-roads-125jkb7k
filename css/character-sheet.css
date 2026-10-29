@@ -1,0 +1,51 @@
+/* Touch-first character pages; desktop keeps the three-column sheet. */
+.sheet-tabs .sheet-mobile-tab { display: none; }
+#characterSheet button:focus-visible { outline: 2px solid #e6bf7b; outline-offset: -3px; }
+.sheet-slot .sheet-slot-select { cursor: pointer; padding: 0; border: 1px solid #70573b; background: #18130f; color: #be9c68; font-size: 1.6rem; }
+.sheet-slot-select[aria-expanded="true"] { border-color: #eac27f; box-shadow: 0 0 10px #c3985933; }
+.sheet-equip-picker { margin-top: 16px; border-top: 1px solid #765b3b; padding-top: 12px; }
+.sheet-equip-picker h4 { margin: 0 0 10px; color: #ebd3a7; text-transform: capitalize; }
+.sheet-equip-picker p { color: #bfae91; font: .8rem/1.5 system-ui; }
+.sheet-equip-picker > button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 10px; margin: 8px 0; background: #30261b; color: #ead8b9; border: 1px solid #765b3b; border-radius: 3px; }
+.sheet-equip-picker .item-art { width: 40px; height: 40px; flex: none; }
+.sheet-equip-picker span { flex: 1; min-width: 0; }
+.sheet-equip-picker b, .sheet-equip-picker small { display: block; }
+.sheet-equip-picker small { color: #bfae91; font: .73rem/1.4 system-ui; margin-top: 4px; }
+.sheet-equip-picker em { font: 700 .7rem system-ui; color: #e7bd77; }
+@media (max-width: 900px), (pointer: coarse) and (max-height: 600px) {
+  #characterSheet { width: 100%; height: 100dvh; top: 0; left: 0; transform: none; border-radius: 0; overflow: hidden; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  #characterSheet .sheet-head { padding: 10px 14px; min-height: 76px; gap: 10px; }
+  #characterSheet .sheet-head h2 { font-size: 1.45rem; overflow-wrap: anywhere; }
+  #characterSheet .sheet-head small { display: none; }
+  #characterSheet .sheet-close { width: 44px; height: 44px; flex: none; align-self: center; }
+  #characterSheet .sheet-tabs { padding: 0; gap: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #characterSheet .sheet-tabs button { display: block; padding: 14px 2px; min-height: 48px; font-size: .73rem; }
+  #characterSheet .sheet-tabs button.active { background: linear-gradient(0deg, #ad804b26, transparent); }
+  #characterSheet .sheet-layout { display: flex; flex-direction: column; overflow: hidden; }
+  #characterSheet .sheet-layout > section { display: none; flex: 1; min-height: 0; border: 0; }
+  #characterSheet[data-mobile-page="character"] .sheet-person { display: flex; overflow-y: auto; }
+  #characterSheet[data-mobile-page="equipment"] .sheet-gear { display: block; overflow-y: auto; }
+  #characterSheet[data-mobile-page="inventory"] .sheet-pack { display: flex; }
+  #characterSheet .sheet-pack, #characterSheet .sheet-gear { padding: 16px 14px 24px; }
+  #characterSheet .sheet-section-head { margin-bottom: 12px; }
+  #characterSheet .sheet-model { flex: 1 0 auto; min-height: 210px; height: min(42dvh, 360px); }
+  #characterSheet .sheet-vitals, #characterSheet .sheet-attributes { flex: none; margin-left: 14px; margin-right: 14px; }
+  #characterSheet .sheet-attributes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  #characterSheet .sheet-attributes small { font-size: .6rem; }
+  #characterSheet .sheet-secondary { font-size: .73rem; padding: 4px 14px 16px; flex: none; }
+  #characterSheet .sheet-pack-scroll { flex: 1; max-height: none; overflow-y: auto; padding-bottom: 8px; }
+  #characterSheet .sheet-grid { grid-template-columns: repeat(auto-fill, minmax(66px, 1fr)); gap: 10px; }
+  #characterSheet .sheet-grid .item-cell, #characterSheet .sheet-grid .item { height: 70px; }
+  #characterSheet .sheet-grid .item-drop { width: 28px; height: 28px; }
+  #characterSheet .sheet-slots { grid-template-columns: 1fr; gap: 10px; }
+  #characterSheet .sheet-slot { min-height: 76px; padding: 8px; gap: 12px; }
+  #characterSheet .sheet-slot-art { width: 54px; height: 54px; }
+  #characterSheet .sheet-slot-art .item-art { width: 46px; height: 46px; }
+  #characterSheet .sheet-slot-copy small { font-size: .65rem; margin-bottom: 4px; }
+  #characterSheet .sheet-slot-copy b { font-size: 1rem; white-space: normal; }
+  #characterSheet .sheet-slot button:not(.sheet-slot-art) { min-width: 44px; min-height: 44px; }
+  #characterSheet .sheet-pack-actions button, #characterSheet .sheet-helmet, #characterSheet .sheet-pvp button { min-height: 44px; font-size: .8rem; }
+  #characterSheet .sheet-gear, #characterSheet .sheet-person, #characterSheet .sheet-pack-scroll, #characterSheet .journal-scroll { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+  body.split-game #characterSheet, body.split-game.sheet-owner-p2 #characterSheet { left: 0; top: 0; width: 100%; height: calc(50dvh - 4px); transform: none; }
+  body.split-game.sheet-owner-p2 #characterSheet { top: 50%; }
+}
